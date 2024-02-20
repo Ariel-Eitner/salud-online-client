@@ -22,7 +22,7 @@ export const LogoutButton = () => {
     if (result.isConfirmed) {
       logout({
         logoutParams: {
-          returnTo: `${window.location.protocol}//${window.location.host}/login`,
+          returnTo: `${window.location.protocol}//${window.location.host}`,
         },
       });
     }
