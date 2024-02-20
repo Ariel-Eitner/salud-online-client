@@ -5,7 +5,7 @@ import { useForm } from "../../hooks/useForm";
 
 export const RegistrationForm = () => {
   const [userType, setUserType] = useState("paciente");
-  const { formData, handleInputChange, handleSubmit } = useForm({
+  const { handleInputChange, handleSubmit } = useForm({
     dni: "",
     phone: "",
     birthDate: "",

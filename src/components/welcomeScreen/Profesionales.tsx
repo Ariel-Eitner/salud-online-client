@@ -48,7 +48,7 @@ export const Profesionales = () => {
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Sombra opcional para un efecto visual
   };
 
-  const renderCard = (profesional) => (
+  const renderCard = (profesional: any) => (
     <Col key={profesional.id}>
       <Card style={cardStyle}>
         <Card.Img
