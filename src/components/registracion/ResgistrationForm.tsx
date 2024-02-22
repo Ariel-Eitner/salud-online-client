@@ -4,12 +4,15 @@ import { MedicoForm, PacienteForm } from "./Forms";
 import { useForm } from "../../hooks/useForm";
 
 export const RegistrationForm = () => {
-  const [userType, setUserType] = useState("paciente");
+  const [userType, setUserType] = useState(1);
   const { handleInputChange, handleSubmit } = useForm({
     dni: "",
     phone: "",
-    birthDate: "",
-    gender: "",
+    birth_date: 0,
+    gender: 1, // suponiendo que 1 corresponde a 'Hombre'
+    user_type: 1,
+    medicoInfo: "",
+    pacienteInfo: "",
   });
 
   const cardStyle = {
@@ -29,14 +32,14 @@ export const RegistrationForm = () => {
                 <Form.Label>Tipo de Usuario</Form.Label>
                 <Form.Control
                   as="select"
-                  onChange={(e) => setUserType(e.target.value)}
+                  onChange={(e) => setUserType(Number(e.target.value))}
                 >
-                  <option value="paciente">Paciente</option>
-                  <option value="medico">Médico</option>
+                  <option value="1">Paciente</option>
+                  <option value="2">Médico</option>
                 </Form.Control>
               </Form.Group>
 
-              {userType === "paciente" ? (
+              {userType === 1 ? (
                 <PacienteForm onChange={handleInputChange} />
               ) : (
                 <MedicoForm onChange={handleInputChange} />

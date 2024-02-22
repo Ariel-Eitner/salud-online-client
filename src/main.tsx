@@ -4,6 +4,8 @@ import App from "./App.tsx";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Auth0Provider } from "@auth0/auth0-react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Provider } from "react-redux";
+import store from "./redux/store/store.ts";
 
 const AUTH0_DOMAIN = import.meta.env.VITE_AUTH0_DOMAIN;
 const AUTH0_CLIENT_ID = import.meta.env.VITE_AUTH0_CLIENT_ID;
@@ -18,7 +20,9 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           redirect_uri: window.location.origin,
         }}
       >
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </Auth0Provider>
     </Router>
   </React.StrictMode>
